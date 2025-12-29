@@ -16,7 +16,7 @@
 # limitations under the License.
 
 """
-🚀 Your First AI Agent: From Prompt to Action
+🚀 Your First AI Agent: From Prompt to Action (Vinoy Version)
 
 Welcome to the Kaggle 5-day Agents course!
 This script demonstrates how to build a simple agent using the Agent Development Kit (ADK).
@@ -42,15 +42,12 @@ async def main():
     print("--- Setup ---")
     
     # Configure API Key
-    # In the original notebook, this used Kaggle Secrets. Here we use environment variables.
     if not os.environ.get("GOOGLE_API_KEY"):
         print("⚠️  GOOGLE_API_KEY environment variable not found.")
         print("Please set it before running this script.")
-        # sys.exit(1) # Optional: exit if key is missing, or let it fail later.
+        # sys.exit(1)
     else:
         print("✅ Gemini API key found in environment.")
-
-    # We skip helper functions related to Kaggle Proxy as they are not relevant for local execution.
 
     # --- Section 2: Your first AI Agent with ADK ---
     
@@ -67,7 +64,6 @@ async def main():
     print("✅ Root Agent defined.")
 
     # 2.3 Run your agent
-    # a. Create an InMemoryRunner
     runner = InMemoryRunner(agent=root_agent)
     print("✅ Runner created.")
 
@@ -81,7 +77,6 @@ async def main():
         print(f"Error running agent: {e}")
 
     # 2.5 Your Turn!
-    # Asking about weather in London
     print("\nDrafting query: 'What's the weather in London?'")
     try:
         response = await runner.run_debug("What's the weather in London?")
@@ -90,9 +85,7 @@ async def main():
     except Exception as e:
         print(f"Error running agent: {e}")
 
-    # --- Section 3: Try the ADK Web Interface ---
-    # The original notebook had instructions for ADK Web UI. 
-    # Locally, you can run `adk web` in your terminal if you have a created agent.
+    # --- Section 3: ADK Web Interface ---
     print("\n--- Section 3: ADK Web Interface ---")
     print("To use the ADK Web UI locally:")
     print("1. Create an agent: adk create sample-agent --model gemini-2.5-flash-lite --api_key $GOOGLE_API_KEY")
